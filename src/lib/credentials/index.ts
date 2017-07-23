@@ -20,7 +20,7 @@ export const getCredentials = memoize((key: string): Promise<string> => {
   const logger = makeLogger({ operation: 'getCredentials' })
   const credstashKey = `superbowleto/${process.env.STAGE}/${key}`
 
-  logger.info({ status: 'started', { metadata: { credstashKey } } })
+  logger.info({ status: 'started', metadata: { credstashKey } })
 
   if (getEnv() === 'test') {
     return Promise.resolve(prop(credstashKey, localCredstashTable))
